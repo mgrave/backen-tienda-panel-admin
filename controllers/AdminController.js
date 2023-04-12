@@ -499,8 +499,8 @@ const enviar_email_pedido_compra = async function(venta){
             service: 'gmail',
             host: 'smtp.gmail.com',
             auth: {
-                user: 'diegoalonssoac@gmail.com',
-                pass: 'dcmplvjviofjojgf'
+                user: 'veraramses1234@gmail.com',
+                pass: 'tkhohnfefqtuwdab'
             }
         }));
     
@@ -517,9 +517,9 @@ const enviar_email_pedido_compra = async function(venta){
             var htmlToSend = template({op:true});
     
             var mailOptions = {
-                from: 'diegoalonssoac@gmail.com',
+                from: 'veraramses1234@gmail.com',
                 to: orden.cliente.email,
-                subject: 'Gracias por tu orden, Prágol.',
+                subject: 'Gracias por tu compra, en nataliadelmar.com',
                 html: htmlToSend
             };
           
@@ -674,8 +674,8 @@ const mail_confirmar_envio = async function(venta){
             service: 'gmail',
             host: 'smtp.gmail.com',
             auth: {
-                user: 'diegoalonssoac@gmail.com',
-                pass: 'dcmplvjviofjojgf'
+                user: 'veraramses1234@gmail.com',
+                pass: 'tkhohnfefqtuwdab'
             }
         }));
     
@@ -692,7 +692,7 @@ const mail_confirmar_envio = async function(venta){
             var htmlToSend = template({op:true});
     
             var mailOptions = {
-                from: 'diegoalonssoac@gmail.com',
+                from: 'veraramses1234@gmail.com',
                 to: orden.cliente.email,
                 subject: 'Tu pedido ' + orden._id + ' fué enviado',
                 html: htmlToSend
@@ -770,8 +770,8 @@ const enviar_orden_compra = async function(venta){
             service: 'gmail',
             host: 'smtp.gmail.com',
             auth: {
-                user: 'diegoalonssoac@gmail.com',
-                pass: 'dcmplvjviofjojgf'
+                user: 'veraramses1234@gmail.com',
+                pass: 'tkhohnfefqtuwdab'
             }
         }));
     
@@ -788,7 +788,7 @@ const enviar_orden_compra = async function(venta){
             var htmlToSend = template({op:true});
     
             var mailOptions = {
-                from: 'diegoalonssoac@gmail.com',
+                from: 'veraramses1234@gmail.com',
                 to: orden.cliente.email,
                 subject: 'Confirmación de compra ' + orden._id,
                 html: htmlToSend
