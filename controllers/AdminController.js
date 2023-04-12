@@ -85,19 +85,21 @@ const agregar_etiqueta_admin = async function(req,res){
 const registro_producto_admin = async function(req,res){
     if(req.user){
         let data = req.body;
-  
+        console.log(data);
         let productos = await Producto.find({titulo:data.titulo});
         
         let arr_etiquetas = JSON.parse(data.etiquetas);
 
         if(productos.length == 0){
             var img_path = req.files.portada.path;
-            var name = img_path.split('\\');
+            var name = img_path.split('/');
             var portada_name = name[2];
+            console.log(portada_name);
 
             data.slug = data.titulo.toLowerCase().replace(/ /g,'-').replace(/[^\w-]+/g,'');
             data.portada = portada_name;
             let reg = await Producto.create(data);
+            console.log(data);
 
             if(arr_etiquetas.length >= 1){
                 for(var item of arr_etiquetas){
@@ -119,7 +121,7 @@ const registro_producto_admin = async function(req,res){
 
 listar_productos_admin = async function(req,res){
     if(req.user){
-        var productos = await Producto.find();
+        var productos = await Producto.find().sort({createdAt:-1});
         res.status(200).send({data:productos});
     }else{
         res.status(500).send({message: 'NoAccess'});
@@ -192,7 +194,7 @@ const obtener_portada = async function(req,res){
             let path_img = './uploads/productos/'+img;
             res.status(200).sendFile(path.resolve(path_img));
         }else{
-            let path_img = './uploads/default.jpg';
+            let path_img = './uploads/no-image.png';
             res.status(200).sendFile(path.resolve(path_img));
         }
     })
@@ -206,7 +208,7 @@ const actualizar_producto_admin = async function(req,res){
         if(req.files){
             //SI HAY IMAGEN
             var img_path = req.files.portada.path;
-            var name = img_path.split('\\');
+            var name = img_path.split('/');
             var portada_name = name[2];
 
             let reg = await Producto.findByIdAndUpdate({_id:id},{
@@ -359,7 +361,7 @@ const agregar_imagen_galeria_admin = async function(req,res){
             let data = req.body;
 
             var img_path = req.files.imagen.path;
-            var name = img_path.split('\\');
+            var name = img_path.split('/');
             var imagen_name = name[2];
 
             let reg =await Producto.findByIdAndUpdate({_id:id},{ $push: {galeria:{
@@ -805,37 +807,37 @@ const enviar_orden_compra = async function(venta){
 }
 
 module.exports = {
-    login_admin,
-    eliminar_etiqueta_admin,
-    listar_etiquetas_admin,
     agregar_etiqueta_admin,
-    registro_producto_admin,
-    listar_productos_admin,
-    obtener_producto_admin,
-    listar_etiquetas_producto_admin,
-    eliminar_etiqueta_producto_admin,
     agregar_etiqueta_producto_admin,
-    obtener_portada,
-    actualizar_producto_admin,
-    listar_variedades_admin,
-    actualizar_producto_variedades_admin,
     agregar_nueva_variedad_admin,
-    eliminar_variedad_admin,
-    listar_inventario_producto_admin,
-    registro_inventario_producto_admin,
     agregar_imagen_galeria_admin,
-    eliminar_imagen_galeria_admin,
-    verificar_token,
-    cambiar_vs_producto_admin,
-    obtener_config_admin,
+    actualizar_producto_admin,
+    actualizar_producto_variedades_admin,
     actualizar_config_admin,
-    pedido_compra_cliente,
+    cambiar_vs_producto_admin,
+    confirmar_pago_orden,
+    eliminar_etiqueta_admin,
+    eliminar_etiqueta_producto_admin,
+    eliminar_variedad_admin,
+    eliminar_imagen_galeria_admin,
+    eliminar_orden_admin,
+    login_admin,
+    listar_etiquetas_admin,
+    listar_etiquetas_producto_admin,
+    listar_inventario_producto_admin,
+    listar_productos_admin,
+    listar_variedades_productos_admin,
+    listar_variedades_admin,
+    marcar_finalizado_orden,
+    marcar_envio_orden,
+    registro_producto_admin,
+    obtener_producto_admin,
+    obtener_portada,
+    registro_inventario_producto_admin,
+    verificar_token,
+    obtener_config_admin,
     obtener_ventas_admin,
     obtener_detalles_ordenes_cliente,
-    marcar_finalizado_orden,
-    eliminar_orden_admin,
-    marcar_envio_orden,
-    confirmar_pago_orden,
+    pedido_compra_cliente,
     registro_compra_manual_cliente,
-    listar_variedades_productos_admin
 }

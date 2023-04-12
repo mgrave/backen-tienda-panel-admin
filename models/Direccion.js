@@ -7,7 +7,7 @@ var DireccionSchema = Schema({
     cliente: {type: Schema.ObjectId, ref: 'cliente', required: true},
     nombres: {type: String, required: true},
     apellidos: {type: String, required: true},
-    dni: {type: String, required: true},
+    dni: {type: String, required: false},
     telefono: {type: String, required: true},
     direccion: {type: String, required: true},
     referencia: {type: String, required: false},
