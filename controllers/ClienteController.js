@@ -358,8 +358,8 @@ const enviar_email_pedido_compra = async function(venta){
             service: 'gmail',
             host: 'smtp.gmail.com',
             auth: {
-                user: 'diegoalonssoac@gmail.com',
-                pass: 'dcmplvjviofjojgf'
+                user: 'veraramses1234@gmail.com',
+                pass: 'dtkhohnfefqtuwdab'
             }
         }));
     
@@ -376,9 +376,9 @@ const enviar_email_pedido_compra = async function(venta){
             var htmlToSend = template({op:true});
     
             var mailOptions = {
-                from: 'diegoalonssoac@gmail.com',
+                from: 'veraramses1234@gmail.com',
                 to: orden.cliente.email,
-                subject: 'Gracias por tu orden, Prágol.',
+                subject: 'Gracias por tu orden, Nataliadelmar.com',
                 html: htmlToSend
             };
           
