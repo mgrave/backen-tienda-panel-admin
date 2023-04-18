@@ -499,8 +499,8 @@ const enviar_email_pedido_compra = async function(venta){
             service: 'gmail',
             host: 'smtp.gmail.com',
             auth: {
-                user: 'veraramses1234@gmail.com',
-                pass: 'tkhohnfefqtuwdab'
+                user: 'nataliadelmarshop@gmail.com',
+                pass: 'swbjmyygcdkzsvwo'
             }
         }));
     
@@ -674,8 +674,8 @@ const mail_confirmar_envio = async function(venta){
             service: 'gmail',
             host: 'smtp.gmail.com',
             auth: {
-                user: 'veraramses1234@gmail.com',
-                pass: 'tkhohnfefqtuwdab'
+                user: 'nataliadelmarshop@gmail.com',
+                pass: 'swbjmyygcdkzsvwo'
             }
         }));
     
@@ -692,7 +692,7 @@ const mail_confirmar_envio = async function(venta){
             var htmlToSend = template({op:true});
     
             var mailOptions = {
-                from: 'veraramses1234@gmail.com',
+                from: 'nataliadelmarshop@gmail.com',
                 to: orden.cliente.email,
                 subject: 'Tu pedido ' + orden._id + ' fué enviado',
                 html: htmlToSend
@@ -770,8 +770,8 @@ const enviar_orden_compra = async function(venta){
             service: 'gmail',
             host: 'smtp.gmail.com',
             auth: {
-                user: 'veraramses1234@gmail.com',
-                pass: 'tkhohnfefqtuwdab'
+                user: 'nataliadelmarshop@gmail.com',
+                pass: 'swbjmyygcdkzsvwo'
             }
         }));
     
@@ -788,7 +788,7 @@ const enviar_orden_compra = async function(venta){
             var htmlToSend = template({op:true});
     
             var mailOptions = {
-                from: 'veraramses1234@gmail.com',
+                from: 'nataliadelmarshop@gmail.com',
                 to: orden.cliente.email,
                 subject: 'Confirmación de compra ' + orden._id,
                 html: htmlToSend

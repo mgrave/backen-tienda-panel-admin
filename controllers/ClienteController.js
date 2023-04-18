@@ -558,8 +558,8 @@ const enviar_orden_compra = async function(venta){
             service: 'gmail',
             host: 'smtp.gmail.com',
             auth: {
-                user: 'diegoalonssoac@gmail.com',
-                pass: 'dcmplvjviofjojgf'
+                user: 'nataliadelmarshop@gmail.com',
+                pass: 'swbjmyygcdkzsvwo'
             }
         }));
     
@@ -576,7 +576,7 @@ const enviar_orden_compra = async function(venta){
             var htmlToSend = template({op:true});
     
             var mailOptions = {
-                from: 'diegoalonssoac@gmail.com',
+                from: 'nataliadelmarshop@gmail.com',
                 to: orden.cliente.email,
                 subject: 'Confirmación de compra ' + orden._id,
                 html: htmlToSend
