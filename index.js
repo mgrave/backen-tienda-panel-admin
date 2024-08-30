@@ -3,7 +3,7 @@
 var express = require('express');
 var bodyparser = require('body-parser');
 var mongoose = require('mongoose');
-var port = process.env.PORT || 4202;
+var port = process.env.PORT || 5000;
 var app = express();
 
 var server = require('http').createServer(app);
@@ -31,7 +31,7 @@ var cliente_routes = require('./routes/cliente');
 var admin_routes = require('./routes/admin');
 var cupon_routes = require('./routes/cupon');
 
-mongoose.connect('mongodb://127.0.0.1:27017/tienda', {useUnifiedTopology:true, useNewUrlParser:true},(err, res)=> {
+mongoose.connect('mongodb://admin:admin@host.docker.internal:27017/tienda?authSource=admin', {useUnifiedTopology:true, useNewUrlParser:true},(err, res)=> {
     if(err){  
         throw err;
         console.log(err);
